@@ -23,6 +23,8 @@ import {
 
 const namespace = join('vortex', 'nexus');
 
+export * from './schemas';
+
 /**
  * Endorse or abstain from endorsing a mod.
  * @returns A {@link !Promise Promise} which when resolved, passes the response from the Nexus Mods API to its {@link !Promise.then then} handler(s).

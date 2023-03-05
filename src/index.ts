@@ -1,7 +1,7 @@
 import { Callback, Result } from '@toebean/npc';
 import { types } from 'vortex-api';
 import { z } from 'zod';
-import * as schemas from './nexus/schemas';
+import * as nexus from './nexus';
 
 export * as nexus from './nexus';
 export * as vortex from './vortex';
@@ -16,47 +16,47 @@ export interface NexusApi {
      * @see {@link https://toebeann.github.io/npc-vortex-api/stable/?page=Interface.NexusApi#endorseMod}
      */
     endorseMod: (
-        input: z.infer<typeof schemas.endorseModArgsSchema>
-    ) => Promise<z.infer<typeof schemas.iEndorseResponseSchema>>;
+        input: z.infer<typeof nexus.endorseModArgsSchema>
+    ) => Promise<z.infer<typeof nexus.iEndorseResponseSchema>>;
     /**
      * Retrieve all changelogs for a mod.
      * @returns A {@link !Promise Promise} which when resolved, passes the response from the Nexus Mods API to its {@link !Promise.then then} handler(s).
      * @see {@link https://toebeann.github.io/npc-vortex-api/stable/?page=Interface.NexusApi#getChangelogs}
      */
     getChangelogs: (
-        input: z.infer<typeof schemas.modIdArgsSchema>
-    ) => Promise<z.infer<typeof schemas.iChangelogsSchema>>;
+        input: z.infer<typeof nexus.modIdArgsSchema>
+    ) => Promise<z.infer<typeof nexus.iChangelogsSchema>>;
     /**
      * Retrieves details about a collection.
      * @returns A {@link !Promise Promise} which when resolved, passes the response from the Nexus Mods API to its {@link !Promise.then then} handler(s).
      * @see {@link https://toebeann.github.io/npc-vortex-api/stable/?page=Interface.NexusApi#getCollection}
      */
     getCollection: (
-        input: z.infer<typeof schemas.getCollectionArgsSchema>
-    ) => Promise<z.infer<typeof schemas.iCollectionSchema>>;
+        input: z.infer<typeof nexus.getCollectionArgsSchema>
+    ) => Promise<z.infer<typeof nexus.iCollectionSchema>>;
     /**
      * Retrieves details about a collection revision.
      * @returns A {@link !Promise Promise} which when resolved, passes the response from the Nexus Mods API to its {@link !Promise.then then} handler(s).
      * @see {@link https://toebeann.github.io/npc-vortex-api/stable/?page=Interface.NexusApi#getCollectionRevision}
      */
     getCollectionRevision: (
-        input: z.infer<typeof schemas.getCollectionRevisionArgsSchema>
-    ) => Promise<z.infer<typeof schemas.iRevisionSchema>>;
+        input: z.infer<typeof nexus.getCollectionRevisionArgsSchema>
+    ) => Promise<z.infer<typeof nexus.iRevisionSchema>>;
     /**
      * Retrieves all collections for a game.
      * @returns A {@link !Promise Promise} which when resolved, passes the response from the Nexus Mods API to its {@link !Promise.then then} handler(s).
      * @see {@link https://toebeann.github.io/npc-vortex-api/stable/?page=Interface.NexusApi#getCollections}
      */
     getCollections: (
-        input: z.infer<typeof schemas.gameIdArgsSchema>
-    ) => Promise<z.infer<typeof schemas.iCollectionSchema>[]>;
+        input: z.infer<typeof nexus.gameIdArgsSchema>
+    ) => Promise<z.infer<typeof nexus.iCollectionSchema>[]>;
     /**
      * Retrieves a list of color schemes used by Nexus Mods.
      * @returns A {@link !Promise Promise} which when resolved, passes the response from the Nexus Mods API to its {@link !Promise.then then} handler(s).
      * @see {@link https://toebeann.github.io/npc-vortex-api/stable/?page=Interface.NexusApi#getColorSchemes}
      */
     getColorSchemes: () => Promise<
-        z.infer<typeof schemas.iColourSchemeSchema>[]
+        z.infer<typeof nexus.iColourSchemeSchema>[]
     >;
     /**
      * Retrieves a list of download links for a file.
@@ -66,15 +66,15 @@ export interface NexusApi {
      * @see {@link https://toebeann.github.io/npc-vortex-api/stable/?page=Interface.NexusApi#getDownloadUrls}
      */
     getDownloadUrls: (
-        input: z.infer<typeof schemas.getDownloadUrlArgsSchema>
-    ) => Promise<z.infer<typeof schemas.iDownloadURLSchema>[]>;
+        input: z.infer<typeof nexus.getDownloadUrlArgsSchema>
+    ) => Promise<z.infer<typeof nexus.iDownloadURLSchema>[]>;
     /**
      * Retrieves a list of endorsements the user has given.
      * @returns A {@link !Promise Promise} which when resolved, passes the response from the Nexus Mods API to its {@link !Promise.then then} handler(s).
      * @see {@link https://toebeann.github.io/npc-vortex-api/stable/?page=Interface.NexusApi#getEndorsements}
      */
     getEndorsements: () => Promise<
-        z.infer<typeof schemas.iEndorsementSchema>[]
+        z.infer<typeof nexus.iEndorsementSchema>[]
     >;
     /**
      * Searches for a file by md5 hash and retrieves information about all matching files.
@@ -86,31 +86,31 @@ export interface NexusApi {
      * @see {@link https://toebeann.github.io/npc-vortex-api/stable/?page=Interface.NexusApi#getFileByMd5}
      */
     getFileByMd5: (
-        input: z.infer<typeof schemas.getFileByMd5ArgsSchema>
-    ) => Promise<z.infer<typeof schemas.iMD5ResultSchema>[]>;
+        input: z.infer<typeof nexus.getFileByMd5ArgsSchema>
+    ) => Promise<z.infer<typeof nexus.iMD5ResultSchema>[]>;
     /**
      * Retrieves details about a file.
      * @returns A {@link !Promise Promise} which when resolved, passes the response from the Nexus Mods API to its {@link !Promise.then then} handler(s).
      * @see {@link https://toebeann.github.io/npc-vortex-api/stable/?page=Interface.NexusApi#getFileInfo}
      */
     getFileInfo: (
-        input: z.infer<typeof schemas.fileIdArgsSchema>
-    ) => Promise<z.infer<typeof schemas.iFileInfoSchema>>;
+        input: z.infer<typeof nexus.fileIdArgsSchema>
+    ) => Promise<z.infer<typeof nexus.iFileInfoSchema>>;
     /**
      * Retrieves details about a specific game.
      * @returns A {@link !Promise Promise} which when resolved, passes the response from the Nexus Mods API to its {@link !Promise.then then} handler(s).
      * @see {@link https://toebeann.github.io/npc-vortex-api/stable/?page=Interface.NexusApi#getGameInfo}
      */
     getGameInfo: (
-        input: z.infer<typeof schemas.gameIdArgsSchema>
-    ) => Promise<z.infer<typeof schemas.iGameInfoSchema>>;
+        input: z.infer<typeof nexus.gameIdArgsSchema>
+    ) => Promise<z.infer<typeof nexus.iGameInfoSchema>>;
     /**
      * Retrieves a list of all games currently supported by Nexus Mods.
      * @returns A {@link !Promise Promise} which when resolved, passes the response from the Nexus Mods API to its {@link !Promise.then then} handler(s).
      * @see {@link https://toebeann.github.io/npc-vortex-api/stable/?page=Interface.NexusApi#getGames}
      */
     getGames: () => Promise<
-        z.infer<typeof schemas.iGameListEntrySchema>[]
+        z.infer<typeof nexus.iGameListEntrySchema>[]
     >;
     /**
      * Retrieves a list of the latest added mods for a game.
@@ -118,40 +118,40 @@ export interface NexusApi {
      * @see {@link https://toebeann.github.io/npc-vortex-api/stable/?page=Interface.NexusApi#getLatestAdded}
      */
     getLatestAdded: (
-        input: z.infer<typeof schemas.gameIdArgsSchema>
-    ) => Promise<z.infer<typeof schemas.iModInfoSchema>[]>;
+        input: z.infer<typeof nexus.gameIdArgsSchema>
+    ) => Promise<z.infer<typeof nexus.iModInfoSchema>[]>;
     /**
      * Retrieves a list of the latest updated mods for a game.
      * @returns A {@link !Promise Promise} which when resolved, passes the response from the Nexus Mods API to its {@link !Promise.then then} handler(s).
      * @see {@link https://toebeann.github.io/npc-vortex-api/stable/?page=Interface.NexusApi#getLatestUpdated}
      */
     getLatestUpdated: (
-        input: z.infer<typeof schemas.gameIdArgsSchema>
-    ) => Promise<z.infer<typeof schemas.iModInfoSchema>[]>;
+        input: z.infer<typeof nexus.gameIdArgsSchema>
+    ) => Promise<z.infer<typeof nexus.iModInfoSchema>[]>;
     /**
      * Retrieves a list of files uploaded for a mod.
      * @returns A {@link !Promise Promise} which when resolved, passes the response from the Nexus Mods API to its {@link !Promise.then then} handler(s).
      * @see {@link https://toebeann.github.io/npc-vortex-api/stable/?page=Interface.NexusApi#getModFiles}
      */
     getModFiles: (
-        input: z.infer<typeof schemas.modIdArgsSchema>
-    ) => Promise<z.infer<typeof schemas.iModFilesSchema>>;
+        input: z.infer<typeof nexus.modIdArgsSchema>
+    ) => Promise<z.infer<typeof nexus.iModFilesSchema>>;
     /**
      * Retrieves details about a mod.
      * @returns A {@link !Promise Promise} which when resolved, passes the response from the Nexus Mods API to its {@link !Promise.then then} handler(s).
      * @see {@link https://toebeann.github.io/npc-vortex-api/stable/?page=Interface.NexusApi#getModInfo}
      */
     getModInfo: (
-        input: z.infer<typeof schemas.modIdArgsSchema>
-    ) => Promise<z.infer<typeof schemas.iModInfoSchema>>;
+        input: z.infer<typeof nexus.modIdArgsSchema>
+    ) => Promise<z.infer<typeof nexus.iModInfoSchema>>;
     /**
      * Retrieves a list of collections the user has created.
      * @returns A {@link !Promise Promise} which when resolved, passes the response from the Nexus Mods API to its {@link !Promise.then then} handler(s).
      * @see {@link https://toebeann.github.io/npc-vortex-api/stable/?page=Interface.NexusApi#getMyCollections}
      */
     getMyCollections: (
-        input: z.infer<typeof schemas.getMyCollectionsArgsSchema>
-    ) => Promise<z.infer<typeof schemas.iRevisionSchema>[]>;
+        input: z.infer<typeof nexus.getMyCollectionsArgsSchema>
+    ) => Promise<z.infer<typeof nexus.iRevisionSchema>[]>;
     /**
      * Retrieves information about the rate limits for the user.
      * @remarks This call does not affect your rate limits.
@@ -165,15 +165,15 @@ export interface NexusApi {
      * @see {@link https://toebeann.github.io/npc-vortex-api/stable/?page=Interface.NexusApi#getRecentlyUpdatedMods}
      */
     getRecentlyUpdatedMods: (
-        input: z.infer<typeof schemas.getRecentlyUpdatedModsArgsSchema>
-    ) => Promise<z.infer<typeof schemas.iUpdateEntrySchema>[]>;
+        input: z.infer<typeof nexus.getRecentlyUpdatedModsArgsSchema>
+    ) => Promise<z.infer<typeof nexus.iUpdateEntrySchema>[]>;
     /**
      * Retrieves a list of all mods the user is tracking.
      * @returns A {@link !Promise Promise} which when resolved, passes the response from the Nexus Mods API to its {@link !Promise.then then} handler(s).
      * @see {@link https://toebeann.github.io/npc-vortex-api/stable/?page=Interface.NexusApi#getTrackedMods}
      */
     getTrackedMods: () => Promise<
-        z.infer<typeof schemas.iTrackedModSchema>[]
+        z.infer<typeof nexus.iTrackedModSchema>[]
     >;
     /**
      * Retrieves a list of trending mods for a game.
@@ -181,8 +181,8 @@ export interface NexusApi {
      * @see {@link https://toebeann.github.io/npc-vortex-api/stable/?page=Interface.NexusApi#getTrending}
      */
     getTrending: (
-        input: z.infer<typeof schemas.gameIdArgsSchema>
-    ) => Promise<z.infer<typeof schemas.iModInfoSchema>[]>;
+        input: z.infer<typeof nexus.gameIdArgsSchema>
+    ) => Promise<z.infer<typeof nexus.iModInfoSchema>[]>;
     /**
      * Retrieves the last key validation result.
      * @remarks This call does not affect your rate limits.
@@ -190,7 +190,7 @@ export interface NexusApi {
      * @see {@link https://toebeann.github.io/npc-vortex-api/stable/?page=Interface.NexusApi#getValidationResult}
      */
     getValidationResult: () => Promise<
-        z.infer<typeof schemas.iValidateKeyResponseSchema>
+        z.infer<typeof nexus.iValidateKeyResponseSchema>
     >;
     /**
      * Rate a collection revision.
@@ -198,30 +198,30 @@ export interface NexusApi {
      * @see {@link https://toebeann.github.io/npc-vortex-api/stable/?page=Interface.NexusApi#rateCollectionRevision}
      */
     rateCollectionRevision: (
-        input: z.infer<typeof schemas.rateCollectionRevisionArgsSchema>
+        input: z.infer<typeof nexus.rateCollectionRevisionArgsSchema>
     ) => Promise<unknown>;
     /**
      * @see {@link https://toebeann.github.io/npc-vortex-api/stable/?page=Interface.NexusApi#resolveCollectionUrl}
      */
     resolveCollectionUrl: (
-        input: z.infer<typeof schemas.resolveCollectionUrlArgsSchema>
-    ) => Promise<z.infer<typeof schemas.iDownloadURLSchema>[]>;
+        input: z.infer<typeof nexus.resolveCollectionUrlArgsSchema>
+    ) => Promise<z.infer<typeof nexus.iDownloadURLSchema>[]>;
     /**
      * Track a mod.
      * @returns A {@link !Promise Promise} which when resolved, passes the response from the Nexus Mods API to its {@link !Promise.then then} handler(s).
      * @see {@link https://toebeann.github.io/npc-vortex-api/stable/?page=Interface.NexusApi#trackMod}
      */
     trackMod: (
-        input: z.infer<typeof schemas.trackModArgsSchema>
-    ) => Promise<z.infer<typeof schemas.iTrackedModSchema>>;
+        input: z.infer<typeof nexus.trackModArgsSchema>
+    ) => Promise<z.infer<typeof nexus.iTrackedModSchema>>;
     /**
      * Stop tracking a mod.
      * @returns A {@link !Promise Promise} which when resolved, passes the response from the Nexus Mods API to its {@link !Promise.then then} handler(s).
      * @see {@link https://toebeann.github.io/npc-vortex-api/stable/?page=Interface.NexusApi#untrackMod}
      */
     untrackMod: (
-        input: z.infer<typeof schemas.trackModArgsSchema>
-    ) => Promise<z.infer<typeof schemas.iTrackedModSchema>>;
+        input: z.infer<typeof nexus.trackModArgsSchema>
+    ) => Promise<z.infer<typeof nexus.iTrackedModSchema>>;
 }
 
 /**
