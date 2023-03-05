@@ -202,15 +202,14 @@ npc-vortex-api exposes helper methods to call the built-in npc procedures of npc
 
 ```ts
 import { inspect } from "util";
-import { getLatestUpdated } from "@toebean/npc-vortex-api/nexus";
-import { getCurrentGame } from "@toebean/npc-vortex-api/vortex";
+import { nexus, vortex } from "@toebean/npc-vortex-api";
 
 (async () => {
   try {
-    const currentGame = await getCurrentGame();
+    const currentGame = await vortex.getCurrentGame();
 
     if (currentGame.id !== "__placeholder") {
-      const latest = await getLatestUpdated({
+      const latest = await nexus.getLatestUpdated({
         input: { gameId: currentGame.id },
       });
       console.log(inspect(latest, false, null, true));
