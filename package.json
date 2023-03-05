@@ -1,7 +1,7 @@
 {
   "name": "@toebean/npc-vortex-api",
   "version": "0.1.0",
-  "description": "A utility package for calling the built-in exposed NPC endpoints of the NPC for Vortex Extensions extension.",
+  "description": "A utility package for calling the built-in procedures of NPC for Vortex Extensions.",
   "author": "Tobey Blaber (https://github.com/toebeann)",
   "homepage": "https://toebeann.github.io/npc-vortex-api/",
   "repository": {
