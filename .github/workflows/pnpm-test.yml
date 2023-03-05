@@ -1,0 +1,36 @@
+name: pnpm test
+
+on:
+  push:
+    branches: ["main"]
+    paths: ["**.ts", "pnpm-lock.yaml", ".github/workflows/pnpm test.yml"]
+  pull_request:
+    branches: ["main", "dev"]
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  test:
+    runs-on: windows-latest
+
+    strategy:
+      matrix:
+        version: [16, lts/*, latest]
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
+
+      - name: Setup node.js @ ${{ matrix.version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.version }}
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run tests
+        run: pnpm test
