@@ -1,7 +1,12 @@
-import { join } from "path";
-import { call } from "@toebean/npc";
-import { z } from "zod";
-import { iGameStoredSchema, iModSchema, iProfileModSchema, iProfileSchema } from "./schemas";
+import { join } from 'path';
+import { call } from '@toebean/npc';
+import { z } from 'zod';
+import {
+    iGameStoredSchema,
+    iModSchema,
+    iProfileModSchema,
+    iProfileSchema,
+} from './schemas';
 
 const namespace = 'vortex';
 
@@ -11,7 +16,9 @@ const namespace = 'vortex';
  * @see {@link https://toebeann.github.io/npc-vortex-api/stable/?page=vortex.Function.ensureLoggedIn}
  */
 export const ensureLoggedIn = (options?: { signal?: AbortSignal }) =>
-    <Promise<void>>call({ endpoint: join(namespace, 'ensureLoggedIn'), ...options });
+    <Promise<void>>(
+        call({ endpoint: join(namespace, 'ensureLoggedIn'), ...options })
+    );
 
 /**
  * Retrieves details about the currently active Vortex profile.
@@ -20,7 +27,12 @@ export const ensureLoggedIn = (options?: { signal?: AbortSignal }) =>
  * @see {@link https://toebeann.github.io/npc-vortex-api/stable/?page=vortex.Function.getActiveProfile}
  */
 export const getActiveProfile = async (options?: { signal?: AbortSignal }) =>
-    iProfileSchema.parse(await call({ endpoint: join(namespace, 'getActiveProfile'), ...options }));
+    iProfileSchema.parse(
+        await call({
+            endpoint: join(namespace, 'getActiveProfile'),
+            ...options,
+        })
+    );
 
 /**
  * Retrieves the stored static details about the currently selected game mode.
@@ -29,7 +41,9 @@ export const getActiveProfile = async (options?: { signal?: AbortSignal }) =>
  * @see {@link https://toebeann.github.io/npc-vortex-api/stable/?page=vortex.Function.getCurrentGame}
  */
 export const getCurrentGame = async (options?: { signal?: AbortSignal }) =>
-    iGameStoredSchema.parse(await call({ endpoint: join(namespace, 'getCurrentGame'), ...options }));
+    iGameStoredSchema.parse(
+        await call({ endpoint: join(namespace, 'getCurrentGame'), ...options })
+    );
 
 /**
  * Retrieves the details of installed mods for the currently selected game mode.
@@ -38,4 +52,9 @@ export const getCurrentGame = async (options?: { signal?: AbortSignal }) =>
  * @see {@link https://toebeann.github.io/npc-vortex-api/stable/?page=vortex.Function.getMods}
  */
 export const getMods = async (options?: { signal?: AbortSignal }) =>
-    z.record(iProfileModSchema).and(z.record(iModSchema)).parse(await call({ endpoint: join(namespace, 'getMods'), ...options }));
+    z
+        .record(iProfileModSchema)
+        .and(z.record(iModSchema))
+        .parse(
+            await call({ endpoint: join(namespace, 'getMods'), ...options })
+        );

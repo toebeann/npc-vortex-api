@@ -31,7 +31,11 @@
   "types": "./types/index.d.ts",
   "sideEffects": false,
   "scripts": {
-    "build": "rimraf dist && rimraf types && tsc"
+    "test": "pnpm format:check",
+    "format": "prettier -w .",
+    "format:check": "prettier -c .",
+    "build": "rimraf dist && rimraf types && tsc",
+    "build:docs": "typedoc && tpv purge -y --patch 3 && tpv sync -y --symlinks"
   },
   "dependencies": {
     "@toebean/npc": "^0.1.0",
