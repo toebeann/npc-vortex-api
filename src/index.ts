@@ -55,9 +55,7 @@ export interface NexusApi {
      * @returns A {@link !Promise Promise} which when resolved, passes the response from the Nexus Mods API to its {@link !Promise.then then} handler(s).
      * @see {@link https://toebeann.github.io/npc-vortex-api/stable/?page=Interface.NexusApi#getColorSchemes}
      */
-    getColorSchemes: () => Promise<
-        z.infer<typeof nexus.iColourSchemeSchema>[]
-    >;
+    getColorSchemes: () => Promise<z.infer<typeof nexus.iColourSchemeSchema>[]>;
     /**
      * Retrieves a list of download links for a file.
      * @remarks If the user isn't premium on Nexus Mods, this requires a key that can only be generated on the website.
@@ -73,9 +71,7 @@ export interface NexusApi {
      * @returns A {@link !Promise Promise} which when resolved, passes the response from the Nexus Mods API to its {@link !Promise.then then} handler(s).
      * @see {@link https://toebeann.github.io/npc-vortex-api/stable/?page=Interface.NexusApi#getEndorsements}
      */
-    getEndorsements: () => Promise<
-        z.infer<typeof nexus.iEndorsementSchema>[]
-    >;
+    getEndorsements: () => Promise<z.infer<typeof nexus.iEndorsementSchema>[]>;
     /**
      * Searches for a file by md5 hash and retrieves information about all matching files.
      * Can be used to lookup a file when you don't know its Nexus Mods mod and file id.
@@ -109,9 +105,7 @@ export interface NexusApi {
      * @returns A {@link !Promise Promise} which when resolved, passes the response from the Nexus Mods API to its {@link !Promise.then then} handler(s).
      * @see {@link https://toebeann.github.io/npc-vortex-api/stable/?page=Interface.NexusApi#getGames}
      */
-    getGames: () => Promise<
-        z.infer<typeof nexus.iGameListEntrySchema>[]
-    >;
+    getGames: () => Promise<z.infer<typeof nexus.iGameListEntrySchema>[]>;
     /**
      * Retrieves a list of the latest added mods for a game.
      * @returns A {@link !Promise Promise} which when resolved, passes the response from the Nexus Mods API to its {@link !Promise.then then} handler(s).
@@ -172,9 +166,7 @@ export interface NexusApi {
      * @returns A {@link !Promise Promise} which when resolved, passes the response from the Nexus Mods API to its {@link !Promise.then then} handler(s).
      * @see {@link https://toebeann.github.io/npc-vortex-api/stable/?page=Interface.NexusApi#getTrackedMods}
      */
-    getTrackedMods: () => Promise<
-        z.infer<typeof nexus.iTrackedModSchema>[]
-    >;
+    getTrackedMods: () => Promise<z.infer<typeof nexus.iTrackedModSchema>[]>;
     /**
      * Retrieves a list of trending mods for a game.
      * @returns A {@link !Promise Promise} which when resolved, passes the response from the Nexus Mods API to its {@link !Promise.then then} handler(s).
