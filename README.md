@@ -227,8 +227,8 @@ All of the helper methods use [Zod](https://zod.dev) to validate the output of e
 
 Complete listing of all helper methods:
 
-- [Nexus](https://toebeann.github.io/npc-vortex-api/stable/?page=Namespace.nexus)
-- [Vortex](https://toebeann.github.io/npc-vortex-api/stable/?page=Namespace.vortex)
+- [Nexus](https://toebeann.github.io/npc-vortex-api/stable/?page=Module.nexus)
+- [Vortex](https://toebeann.github.io/npc-vortex-api/stable/?page=Module.vortex)
 
 ### Calling npc for Vortex built-ins from a Vortex extension
 
@@ -270,8 +270,8 @@ All of the built-ins use [Zod](https://zod.dev) to validate the output of each f
 
 Complete listing of npc for Vortex built-ins:
 
-- [Nexus](https://toebeann.github.io/npc-vortex-api/stable/?page=Interface.NexusApi)
-- [Vortex](https://toebeann.github.io/npc-vortex-api/stable/?page=Interface.VortexApi)
+- [Nexus](https://toebeann.github.io/npc-vortex-api/stable/?page=index.Interface.NexusApi)
+- [Vortex](https://toebeann.github.io/npc-vortex-api/stable/?page=index.Interface.VortexApi)
 
 ## License
 
