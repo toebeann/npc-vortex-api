@@ -4,8 +4,8 @@
     "src",
     "src/nexus",
     "src/vortex",
-    "src/nexus/schemas",
-    "src/vortex/schemas"
+    "src/nexus/schemas.ts",
+    "src/vortex/schemas.ts"
   ],
   "includeVersion": true,
   "theme": "yaf",
