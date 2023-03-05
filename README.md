@@ -270,8 +270,8 @@ All of the built-ins use [Zod](https://zod.dev) to validate the output of each f
 
 Complete listing of npc for Vortex built-ins:
 
-- [Nexus](https://toebeann.github.io/npc-vortex-api/stable/?page=Interface.NexusApi)
-- [Vortex](https://toebeann.github.io/npc-vortex-api/stable/?page=Interface.VortexApi)
+- [Nexus](https://toebeann.github.io/npc-vortex-api/stable/?page=index.Interface.NexusApi)
+- [Vortex](https://toebeann.github.io/npc-vortex-api/stable/?page=index.Interface.VortexApi)
 
 ## License
 
