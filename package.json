@@ -1,0 +1,74 @@
+{
+  "name": "@toebean/npc-vortex-api",
+  "version": "0.1.0",
+  "description": "A utility package for calling the built-in exposed NPC endpoints of the NPC for Vortex Extensions extension.",
+  "author": "Tobey Blaber (https://github.com/toebeann)",
+  "homepage": "https://toebeann.github.io/npc-vortex-api/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/toebeann/npc-vortex-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/toebeann/npc-vortex-api/issues"
+  },
+  "funding": [
+    "https://github.com/toebeann/npc?sponsor=1",
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/toebeann"
+    },
+    {
+      "type": "kofi",
+      "url": "https://ko-fi.com/toebean_"
+    },
+    {
+      "type": "paypal",
+      "url": "https://paypal.me/tobeyblaber"
+    }
+  ],
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "types": "./types/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "rimraf dist && rimraf types && tsc"
+  },
+  "dependencies": {
+    "@toebean/npc": "^0.1.0",
+    "zod": "^3.21.0"
+  },
+  "devDependencies": {
+    "@nexusmods/nexus-api": "^1.1.5",
+    "@tsconfig/node16": "^1.0.3",
+    "@types/node": "^18.14.6",
+    "@typescript-eslint/eslint-plugin": "^5.54.0",
+    "@typescript-eslint/parser": "^5.54.0",
+    "eslint": "^8.35.0",
+    "eslint-config-prettier": "^8.6.0",
+    "prettier": "^2.8.4",
+    "rimraf": "^4.3.0",
+    "typedoc": "^0.23.26",
+    "typedoc-plugin-versions-cli": "^0.1.12",
+    "typedoc-theme-yaf": "^0.0.4",
+    "typescript": "^4.9.5",
+    "vortex-api": "github:Nexus-Mods/vortex-api"
+  },
+  "files": [
+    "dist/**/*.js?(.map)",
+    "types/**/*.d.ts?(.map)"
+  ],
+  "keywords": [
+    "Vortex",
+    "Nexus",
+    "RPC",
+    "IPC",
+    "API",
+    "npc"
+  ],
+  "engines": {
+    "node": ">=16"
+  },
+  "os": [
+    "win32"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+    "$schema": "https://typedoc.org/schema.json",
+    "entryPoints": ["src"],
+    "includeVersion": true,
+    "theme": "yaf",
+    "externalSymbolLinkMappings": {
+        "global": {
+            "AbortSignal": "https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal",
+            "Promise": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+            "Promise.then": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then"
+        },
+        "typescript": {
+            "Record": "https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type"
+        },
+        "@toebean/npc": {
+            "Npc": "https://toebeann.github.io/npc/stable/?page=Interface.Npc"
+        }
+    }
+}
