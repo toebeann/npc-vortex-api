@@ -1,7 +1,7 @@
 import { Callback, Result } from '@toebean/npc';
 import { types } from 'vortex-api';
 import { z } from 'zod';
-import * as nexus from './nexus';
+import * as nexus from './nexus/schemas';
 
 export * as nexus from './nexus';
 export * as vortex from './vortex';

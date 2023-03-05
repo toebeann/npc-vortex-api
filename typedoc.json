@@ -1,6 +1,6 @@
 {
   "$schema": "https://typedoc.org/schema.json",
-  "entryPoints": ["src"],
+  "entryPoints": ["src", "src/nexus", "src/vortex", "src/nexus/schemas", "src/vortex/schemas"],
   "includeVersion": true,
   "theme": "yaf",
   "externalSymbolLinkMappings": {

@@ -23,7 +23,7 @@ import {
 
 const namespace = join('vortex', 'nexus');
 
-export * from './schemas';
+export * as schemas from './schemas';
 
 /**
  * Endorse or abstain from endorsing a mod.
