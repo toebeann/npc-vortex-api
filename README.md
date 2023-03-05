@@ -116,9 +116,6 @@ async function getSquareRoot(n: number) {
   return z.number().parse(result);
 }
 
-const getSquareRoot = async (n: number) => {
-}z.number().parse(await call(join("myNodeApp", "getSquareRoot"), n));
-
 export default async function main(context: types.IExtensionContext) {
   try {
     const root = await getSquareRoot(64);
