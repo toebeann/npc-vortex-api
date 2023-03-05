@@ -2,7 +2,7 @@
 
 # npc-vortex-api 🛠️
 
-A utility package for npc for Vortex.
+A utility package for [npc for Vortex](https://www.nexusmods.com/site/mods/530).
 
 [![npm package version](https://img.shields.io/npm/v/@toebean/npc-vortex-api.svg?logo=npm&label&labelColor=222&style=flat-square)](https://npmjs.org/package/@toebean/npc-vortex-api "View npc-vortex-api on npm") [![npm package downloads](https://img.shields.io/npm/dw/@toebean/npc-vortex-api.svg?logo=npm&labelColor=222&style=flat-square)](https://npmjs.org/package/@toebean/npc-vortex-api "View npc-vortex-api on npm") [![typedocs](https://img.shields.io/badge/docs-informational.svg?logo=typescript&labelColor=222&style=flat-square)](https://toebeann.github.io/npc-vortex-api/ "Read the documentation on Github Pages") [![license](https://img.shields.io/github/license/toebeann/npc-vortex-api.svg?logo=open-source-initiative&logoColor=3DA639&color=informational&labelColor=222&style=flat-square)](https://github.com/toebeann/npc-vortex-api/blob/main/LICENSE "View the license on GitHub")
 
@@ -193,9 +193,9 @@ async function getSquareRoot(n: number) {
 - See [npc](https://toebeann.github.io/npc) for more information about the [call](https://toebeann.github.io/npc/stable/?page=Function.call) function.
 - See https://zod.dev for more information on Zod.
 
-#### npc for Vortex built-ins
+#### [npc for Vortex](https://www.nexusmods.com/site/mods/530) built-ins
 
-npc-vortex-api exposes helper methods to call the built-in npc procedures of npc for Vortex:
+npc-vortex-api exposes helper methods to call the built-in npc procedures of [npc for Vortex](https://www.nexusmods.com/site/mods/530):
 
 ```ts
 import { inspect } from "util";
@@ -226,9 +226,9 @@ Complete listing of all helper methods:
 - [Nexus](https://toebeann.github.io/npc-vortex-api/stable/?page=Module.nexus)
 - [Vortex](https://toebeann.github.io/npc-vortex-api/stable/?page=Module.vortex)
 
-### Calling npc for Vortex built-ins from a Vortex extension
+### Calling [npc for Vortex](https://www.nexusmods.com/site/mods/530) built-ins from a Vortex extension
 
-It is not necessary to use npc to call the npc for Vortex built-ins from a Vortex extension, as they are exposed via the Vortex extension API in the same manner as registerNpcApi:
+It is not necessary to use npc to call the [npc for Vortex](https://www.nexusmods.com/site/mods/530) built-ins from a Vortex extension, as they are exposed via the Vortex extension API in the same manner as registerNpcApi:
 
 ```ts
 import { NexusApi, VortexApi } from "@toebean/npc-vortex-api";
@@ -264,7 +264,7 @@ export default main(context: types.IExtensionContext) {
 
 All of the built-ins use [Zod](https://zod.dev) to validate the output of each function, so you do not need to do this yourself.
 
-Complete listing of npc for Vortex built-ins:
+Complete listing of [npc for Vortex](https://www.nexusmods.com/site/mods/530) built-ins:
 
 - [Nexus](https://toebeann.github.io/npc-vortex-api/stable/?page=index.Interface.NexusApi)
 - [Vortex](https://toebeann.github.io/npc-vortex-api/stable/?page=index.Interface.VortexApi)
