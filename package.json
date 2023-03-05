@@ -1,6 +1,6 @@
 {
   "name": "@toebean/npc-vortex-api",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A utility package for npc for Vortex.",
   "author": "Tobey Blaber (https://github.com/toebeann)",
   "homepage": "https://toebeann.github.io/npc-vortex-api/",
@@ -30,6 +30,14 @@
   "main": "./dist/index.js",
   "types": "./types/index.d.ts",
   "sideEffects": false,
+  "exports": {
+    ".": "./dist/index.js",
+    "./nexus": "./dist/nexus/index.js",
+    "./nexus/schemas": "./dist/nexus/schemas.js",
+    "./vortex": "./dist/vortex/index.js",
+    "./vortex/schemas": "./dist/vortex/schemas.js",
+    "./package.json": "./package.json"
+  },
   "scripts": {
     "test": "pnpm format:check",
     "format": "prettier -w .",

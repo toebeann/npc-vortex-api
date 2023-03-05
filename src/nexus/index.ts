@@ -21,9 +21,6 @@ import {
     updatePeriodSchema,
 } from './schemas';
 
-export * as schemas from './schemas';
-export * as types from './types';
-
 const namespace = join('vortex', 'nexus');
 
 /**

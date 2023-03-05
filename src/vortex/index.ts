@@ -10,8 +10,6 @@ import {
 
 const namespace = 'vortex';
 
-export * as schemas from './schemas';
-
 /**
  * Ensures the Vortex user is logged in to their Nexus account.
  * @returns A {@link !Promise Promise} which when resolved, indicates the user is logged into their Nexus account.
