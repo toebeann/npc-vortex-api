@@ -266,6 +266,7 @@ export interface CreateVortexApi {
 export const npcApiSchema = z.record(z.unknown()).and(
   z.object({
     validators: z.record(z.unknown()).optional(),
+    middleware: z.record(z.unknown()).optional(),
   }),
 )
 
