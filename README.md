@@ -139,20 +139,20 @@ export default async function main(context: types.IExtensionContext) {
 
 ```ts
 import { join } from "path"
-import { create } from "@toebean/npc"
+import { createProcedure } from "@toebean/npc"
 import { z } from "zod"
 
 // create an npc procedure which calculates the square root of a
 // numeric input value, with middleware which will validate the
 // input value is a number using Zod
-const npc = create(Math.sqrt, z.number().parse)
+const npc = createProcedure(Math.sqrt, z.number().parse)
 await npc.listen(join("myNodeApp", "getSquareRoot"))
 
 // the npc procedure is now available to be called at the endpoint:
 // myNodeApp\getSquareRoot
 ```
 
-- See [npc](https://toebeann.github.io/npc) for more information about the [create](https://toebeann.github.io/npc/stable/?page=Function.create) function.
+- See [npc](https://toebeann.github.io/npc) for more information about the [createProcedure](https://toebeann.github.io/npc/stable/?page=Function.createProcedure) function.
 - See https://zod.dev for more information on Zod.
 
 ### Calling Vortex npc procedures from a separate Node.js application
