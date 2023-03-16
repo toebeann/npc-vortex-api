@@ -80,12 +80,12 @@ export default main(context: types.IExtensionContext) {
     const path = join("myExtensionName", "getSquareRoot");
 
     // it is recommended to validate the input arguments being
-    // sent to your procedure with middleware - in this case
-    // we are using Zod to validate the input argument is a number
-    const middleware = z.number().parse;
+    // sent to your procedure - in this case we are using Zod to
+    // validate the input argument is a number
+    const validator = z.number().parse;
 
     // now register the npc procedure
-    const endpoint = await registerNpcApi?.(path, callback, middleware);
+    const endpoint = await registerNpcApi?.(path, callback, validator);
     // endpoint = "vortex\\myExtensionName\\getSquareRoot"
 
     // the npc procedure will now be callable via npc
@@ -143,7 +143,7 @@ import { createProcedure } from "@toebean/npc"
 import { z } from "zod"
 
 // create an npc procedure which calculates the square root of a
-// numeric input value, with middleware which will validate the
+// numeric input value, with a validator which will validate the
 // input value is a number using Zod
 const npc = createProcedure(Math.sqrt, z.number().parse)
 await npc.listen(join("myNodeApp", "getSquareRoot"))
