@@ -265,7 +265,7 @@ export interface CreateVortexApi {
  */
 export const npcApiSchema = z.record(z.unknown()).and(
   z.object({
-    middleware: z.record(z.unknown()).optional(),
+    validators: z.record(z.unknown()).optional(),
   }),
 )
 
@@ -313,7 +313,7 @@ export interface RegisterNpcApi {
   (path: string, callback: Callback): Promise<string | undefined>
 
   /**
-   * Registers an {@link @toebean/npc!Npc npc procedure} at a given path with middleware. The procedure callback will then be available to other processes via the npc protocol.
+   * Registers an {@link @toebean/npc!Npc npc procedure} at a given path with input validation. The procedure callback will then be available to other processes via the npc protocol.
    * @remarks
    * * The procedure callback will only receive a single argument when called. It is your responsibility to validate this argument.
    * We recommend {@link https://zod.dev Zod} for validation.
@@ -332,7 +332,7 @@ export interface RegisterNpcApi {
    *     context.once(async () => {
    *         const registerNpcApi: RegisterNpcApi = context.api.ext.registerNpcApi; // assign the interface to the function for TypeScript type safety.
    *
-   *         // register the function `enableMod` with a Zod schema validator middleware function, namespaced by the name of the extension
+   *         // register the function `enableMod` with a Zod schema validator function, namespaced by the name of the extension
    *         const endpoint = await registerNpcApi?.(join('subnauticaSupport', 'enableMod'), enableMod, enableModArgsSchema.parse);
    *         // endpoint = 'vortex\\subnauticaSupport\\enableMod'
    *         // `enableMod` is now available via the npc protocol at this address.
@@ -347,12 +347,12 @@ export interface RegisterNpcApi {
    * @param {string} path The path at whic hthe procedure will be available.
    * It is generally recommended to combine the name of your extension with the name of the function.
    * @param {(input: T) => Result} callback The underlying callback powering the procedure to expose at the path.
-   * @param {(input: unknown) => T} middleware A middleware function which will be applied to the callback's input argument.
+   * @param {(input: unknown) => T} validator An input validation function which will be applied to the callback's input argument.
    * The return of this function will be passed to the callback as its input. Useful for inserting argument validation or transformation, for example.
    * @returns A {@link !Promise Promise} which when resolved, indicates the callback is available to be called via the {@link @toebean/npc!Npc npc} protocol at the endpoint
    * passed to the {@link !Promise.then then} handler.
    */
-  <T>(path: string, callback: (input: T) => Result, middleware: (input: unknown) => T): Promise<
+  <T>(path: string, callback: (input: T) => Result, validator: (input: unknown) => T): Promise<
     string | undefined
   >
 
@@ -361,8 +361,8 @@ export interface RegisterNpcApi {
    * @remarks
    * * Procedure endpoints will take the form `vortex\\${namespace}\\${key}` where `namespace` is the passed `namespace` argument,
    * and `key` is the key of the property in the passed `api` object.
-   * * To automatically assign middleware to property function, simply create an object property `middleware` on the `api` object,
-   * and set a property of this object with a matching key, e.g. `{ foo: (n: number) => isNaN(n), middleware: { foo: z.number().parse } }`
+   * * To automatically assign input validation to a property function, simply create an object property `validators` on the `api` object,
+   * and set a property of this object with a matching key, e.g. `{ foo: (n: number) => isNaN(n), validators: { foo: z.number().parse } }`
    * * Procedure callbacks will only receive a single argument when called. It is your responsibility to validate this argument.
    * We recommend {@link https://zod.dev Zod} for validation.
    * * registerNpcApi should be called within the context.once callback.
@@ -379,10 +379,10 @@ export interface RegisterNpcApi {
    *     context.once(async () => {
    *         const registerNpcApi: RegisterNpcApi = context.api.ext.registerNpcApi; // assign the interface to the function for TypeScript type safety.
    *
-   *         // register the function `enableMod` with a Zod schema validator middleware function, namespaced by the name of the extension
+   *         // register the function `enableMod` with a Zod schema validator function, namespaced by the name of the extension
    *         const endpoints = await registerNpcApi?.('subnauticaSupport', {
    *             getSquareRoot: Math.sqrt,
-   *             middleware: {
+   *             validators: {
    *                 getSquareRoot: z.number().parse
    *             }
    *         });
@@ -396,7 +396,7 @@ export interface RegisterNpcApi {
    * }
    * ```
    * @param {string} namespace The namespace to apply to all functions of the passed `api` object.
-   * @param {Record<string, unknown> & { middleware: Record<string, unknown> }} api An object whose function properties should be registered as
+   * @param {Record<string, unknown> & { validators?: Record<string, unknown> }} api An object whose function properties should be registered as
    * {@link @toebean/npc!Npc npc procedures}.
    * @returns A {@link !Promise Promise} which when resolved, indicates all function properties of the `api` object are available to be called via the
    * {@link @toebean/npc!Npc npc} protocol at the endpoints passed to the {@link !Promise.then then} handler.
