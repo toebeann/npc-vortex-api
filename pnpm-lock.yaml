@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@nexusmods/nexus-api': ^1.1.5
-  '@toebean/npc': ^0.1.0
+  '@toebean/npc': ^0.2.0
   '@tsconfig/node16': ^1.0.3
   '@types/node': ^18.15.3
   '@typescript-eslint/eslint-plugin': ^5.55.0
@@ -19,7 +19,7 @@ specifiers:
   zod: ^3.21.4
 
 dependencies:
-  '@toebean/npc': 0.1.0
+  '@toebean/npc': 0.2.0
   zod: 3.21.4
 
 devDependencies:
@@ -128,11 +128,12 @@ packages:
       fastq: 1.15.0
     dev: true
 
-  /@toebean/npc/0.1.0:
-    resolution: {integrity: sha512-rn2I8/+RSUPffJJNfd+kgBrOhOrB2QjeHWXVMiI468D58gHLzlbSfCuBfBSpIbqJ0dB5Y3z3tIUOw5NPomhT7g==}
+  /@toebean/npc/0.2.0:
+    resolution: {integrity: sha512-My2ylb/5Lq4C2EBmviGQSrS8AK3rYoSkOEpjJ0NbWUsXKl1e716+n39NyW7wlRHBGgMDZ3H50vGlZnQy+BhgDQ==}
     engines: {node: '>=16'}
     os: [win32]
     dependencies:
+      rxjs: 7.8.0
       uuid: 9.0.0
       zod: 3.21.4
     dev: false
@@ -1487,6 +1488,12 @@ packages:
       queue-microtask: 1.2.3
     dev: true
 
+  /rxjs/7.8.0:
+    resolution: {integrity: sha512-F2+gxDshqmIub1KdvZkaEfGDwLNpPvk9Fs6LD/MyQxNgMds/WH9OdDDXOmxUZpME+iSK3rQCctkL0DYyytUqMg==}
+    dependencies:
+      tslib: 2.5.0
+    dev: false
+
   /safe-buffer/5.2.1:
     resolution: {integrity: sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==}
     dev: true
@@ -1630,6 +1637,10 @@ packages:
   /tslib/1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
     dev: true
+
+  /tslib/2.5.0:
+    resolution: {integrity: sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==}
+    dev: false
 
   /tsutils/3.21.0_typescript@4.9.5:
     resolution: {integrity: sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA==}

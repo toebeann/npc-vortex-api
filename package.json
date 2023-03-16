@@ -61,7 +61,7 @@
     "build:docs": "typedoc && tpv purge -y --patch 3 && tpv sync -y --symlinks"
   },
   "dependencies": {
-    "@toebean/npc": "^0.1.0",
+    "@toebean/npc": "^0.2.0",
     "zod": "^3.21.4"
   },
   "devDependencies": {
