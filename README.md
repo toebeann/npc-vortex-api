@@ -104,21 +104,21 @@ export default main(context: types.IExtensionContext) {
 ### Calling external npc procedures from a Vortex extension
 
 ```ts
-import { join } from "path";
-import { call } from "@toebean/npc";
-import { types } from "vortex-api";
-import { z } from "zod";
+import { join } from "path"
+import { call } from "@toebean/npc"
+import { types } from "vortex-api"
+import { z } from "zod"
 
 async function getSquareRoot(n: number) {
-  const result = await call(join("myNodeApp", "getSquareRoot"), n);
+  const result = await call(join("myNodeApp", "getSquareRoot"), n)
   // we should validate the result matches our expectations,
   // for this purpose we recommend using Zod
-  return z.number().parse(result);
+  return z.number().parse(result)
 }
 
 export default async function main(context: types.IExtensionContext) {
   try {
-    const root = await getSquareRoot(64);
+    const root = await getSquareRoot(64)
     // if the endpoint was available, the input value 64 was
     // acceptable by the procedure at the endpoint,
     // and the output value meets our own validation,
@@ -138,15 +138,15 @@ export default async function main(context: types.IExtensionContext) {
 ### Registering npc procedures in a separate Node.js application
 
 ```ts
-import { join } from "path";
-import { create } from "@toebean/npc";
-import { z } from "zod";
+import { join } from "path"
+import { create } from "@toebean/npc"
+import { z } from "zod"
 
 // create an npc procedure which calculates the square root of a
 // numeric input value, with middleware which will validate the
 // input value is a number using Zod
-const npc = create(Math.sqrt, z.number().parse);
-await npc.listen(join("myNodeApp", "getSquareRoot"));
+const npc = create(Math.sqrt, z.number().parse)
+await npc.listen(join("myNodeApp", "getSquareRoot"))
 
 // the npc procedure is now available to be called at the endpoint:
 // myNodeApp\getSquareRoot
@@ -160,23 +160,23 @@ await npc.listen(join("myNodeApp", "getSquareRoot"));
 #### Registered by extensions
 
 ```ts
-import { join } from "path";
-import { call } from "@toebean/npc";
-import { z } from "zod";
+import { join } from "path"
+import { call } from "@toebean/npc"
+import { z } from "zod"
 
 async function getSquareRoot(n: number) {
   const result = await call({
     endpoint: join("vortex", "myExtensionName", "getSquareRoot"),
     input: n,
-  });
+  })
   // we should validate the result matches our expectations,
   // for this purpose we recommend using Zod
-  return z.number().parse(result);
+  return z.number().parse(result)
 }
 
-(async () => {
+;(async () => {
   try {
-    const root = await getSquareRoot(64);
+    const root = await getSquareRoot(64)
     // if the endpoint was available, the input value 64 was
     // acceptable by the procedure at the endpoint,
     // and the output value meets our own validation,
@@ -187,7 +187,7 @@ async function getSquareRoot(n: number) {
     // or if our input arguments/output did not pass validation,
     // an error will be thrown, so we should handle that error here
   }
-})();
+})()
 ```
 
 - See [npc](https://toebeann.github.io/npc) for more information about the [call](https://toebeann.github.io/npc/stable/?page=Function.call) function.
@@ -198,25 +198,25 @@ async function getSquareRoot(n: number) {
 npc-vortex-api exposes helper methods to call the built-in npc procedures of [npc for Vortex](https://www.nexusmods.com/site/mods/530):
 
 ```ts
-import { inspect } from "util";
-import { nexus, vortex } from "@toebean/npc-vortex-api";
+import { inspect } from "util"
+import { nexus, vortex } from "@toebean/npc-vortex-api"
 
-(async () => {
+;(async () => {
   try {
-    const currentGame = await vortex.getCurrentGame();
+    const currentGame = await vortex.getCurrentGame()
 
     if (currentGame.id !== "__placeholder") {
       const latest = await nexus.getLatestUpdated({
         input: { gameId: currentGame.id },
-      });
-      console.log(inspect(latest, false, null, true));
+      })
+      console.log(inspect(latest, false, null, true))
       // prints a list of the latest updated mods on Nexus Mods
       // for the game which the user is currently managing in Vortex
     }
   } catch (error) {
     // handle any errors
   }
-})();
+})()
 ```
 
 All of the helper methods use [Zod](https://zod.dev) to validate the output of each function, so you do not need to do this yourself.
